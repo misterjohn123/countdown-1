@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>648 Hours — Scorpio Koko ⚖ Libra chiksone Countdown</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sky-pale:#eaf6fc;
+    --sky-mid:#bfe0f2;
+    --blue-deep:#183a63;
+    --blue-ink:#0b2140;
+    --teal-scorpio:#2f9db0;
+    --lavender-libra:#7d93d8;
+    --rose-gold:#e5b4b0;
+    --rose-gold-deep:#c98a8f;
+    --card-glass: rgba(255,255,255,0.55);
+    --card-border: rgba(255,255,255,0.7);
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  html,body{height:100%;}
+
+  body{
+    font-family:'Work Sans', sans-serif;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background: radial-gradient(ellipse at 20% 10%, var(--sky-pale) 0%, var(--sky-mid) 38%, var(--blue-deep) 78%, var(--blue-ink) 100%);
+    color: var(--blue-ink);
+    overflow-x:hidden;
+    padding: 32px 18px;
+    position:relative;
+  }
+
+  /* starfield */
+  .stars{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:0;
+  }
+  .stars span{
+    position:absolute;
+    width:2px;height:2px;
+    background:#ffffff;
+    border-radius:50%;
+    opacity:0.5;
+    animation: twinkle 4s infinite ease-in-out;
+  }
+  @keyframes twinkle{
+    0%,100%{opacity:0.15;}
+    50%{opacity:0.85;}
+  }
+
+  .stage{
+    position:relative;
+    z-index:2;
+    width:100%;
+    max-width:620px;
+  }
+
+  .card{
+    background: var(--card-glass);
+    border:1px solid var(--card-border);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-radius:28px;
+    padding: clamp(28px, 5vw, 56px) clamp(22px, 6vw, 60px);
+    box-shadow: 0 20px 60px rgba(11,33,64,0.25), inset 0 1px 0 rgba(255,255,255,0.6);
+    text-align:center;
+  }
+
+  .eyebrow{
+    font-family:'Space Mono', monospace;
+    letter-spacing: 0.32em;
+    text-transform:uppercase;
+    font-size: 11px;
+    color: var(--blue-deep);
+    opacity:0.75;
+  }
+
+  h1{
+    font-family:'Cormorant Garamond', serif;
+    font-weight:600;
+    font-size: clamp(28px, 5.2vw, 42px);
+    line-height:1.15;
+    margin: 10px 0 4px;
+    color: var(--blue-ink);
+  }
+
+  .sub{
+    font-size: clamp(13px, 2.6vw, 15px);
+    color: var(--blue-deep);
+    opacity:0.8;
+    font-weight:400;
+    margin-bottom: clamp(22px, 5vw, 34px);
+  }
+
+  /* balance beam with two zodiac glyphs */
+  .balance{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap: clamp(14px, 4vw, 30px);
+    margin-bottom: clamp(24px, 5vw, 36px);
+  }
+
+  .glyph{
+    width: clamp(58px, 12vw, 84px);
+    height: clamp(58px, 12vw, 84px);
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-shrink:0;
+    animation: sway 6s ease-in-out infinite;
+    position:relative;
+  }
+
+  .glyph svg{
+    width: 62%;
+    height: 62%;
+  }
+
+  .glyph.scorpio{
+    background: radial-gradient(circle at 32% 28%, #6fcdd9, var(--teal-scorpio));
+    box-shadow: 0 8px 24px rgba(47,157,176,0.4), 0 0 0 1px rgba(255,255,255,0.4) inset;
+    animation-delay:0s;
+  }
+
+  .glyph.libra{
+    background: radial-gradient(circle at 32% 28%, #b6c1ee, var(--lavender-libra));
+    box-shadow: 0 8px 24px rgba(125,147,216,0.4), 0 0 0 1px rgba(255,255,255,0.4) inset;
+    animation-delay:0.4s;
+  }
+
+  @keyframes sway{
+    0%,100%{ transform: translateY(0); }
+    50%{ transform: translateY(-6px); }
+  }
+
+  .beam-wrap{
+    flex:1;
+    max-width: 100px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+  }
+
+  .beam{
+    width:100%;
+    height:1px;
+    background: linear-gradient(90deg, var(--teal-scorpio), var(--rose-gold), var(--lavender-libra));
+    opacity:0.6;
+  }
+
+  .heart{
+    position:absolute;
+    width: 14px;
+    height:14px;
+    color: var(--rose-gold-deep);
+    animation: pulse 2.4s ease-in-out infinite;
+  }
+
+  @keyframes pulse{
+    0%,100%{ transform: scale(1); opacity:0.85; }
+    50%{ transform: scale(1.18); opacity:1; }
+  }
+
+  /* countdown */
+  .countdown{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap: clamp(10px, 3vw, 22px);
+    flex-wrap:wrap;
+  }
+
+  .unit{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    min-width: 90px;
+  }
+
+  .value{
+    font-family:'Space Mono', monospace;
+    font-weight:700;
+    font-size: clamp(38px, 11vw, 68px);
+    line-height:1;
+    color: var(--blue-ink);
+    background: linear-gradient(180deg, var(--blue-ink), var(--blue-deep));
+    -webkit-background-clip:text;
+    background-clip:text;
+    -webkit-text-fill-color:transparent;
+  }
+
+  .label{
+    margin-top:8px;
+    font-family:'Space Mono', monospace;
+    font-size: clamp(10px, 2.2vw, 12px);
+    letter-spacing: 0.22em;
+    text-transform:uppercase;
+    color: var(--blue-deep);
+    opacity:0.65;
+  }
+
+  .colon{
+    font-family:'Space Mono', monospace;
+    font-size: clamp(28px, 8vw, 50px);
+    font-weight:700;
+    color: var(--rose-gold-deep);
+    opacity:0.75;
+    transform: translateY(-6px);
+  }
+
+  .footer-note{
+    margin-top: clamp(24px, 5vw, 34px);
+    font-size:12px;
+    color: var(--rose-gold-deep);
+    opacity:0.7;
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size: 14px;
+    letter-spacing:0.02em;
+  }
+
+  .done{
+    font-family:'Cormorant Garamond', serif;
+    font-size: clamp(26px, 5vw, 36px);
+    color: var(--blue-ink);
+  }
+
+  .hidden{
+    display:none !important;
+  }
+
+  .reveal-btn{
+    margin-top: clamp(24px, 5vw, 34px);
+    padding: 14px 34px;
+    border:none;
+    border-radius: 999px;
+    background: linear-gradient(120deg, var(--teal-scorpio), var(--rose-gold), var(--lavender-libra));
+    color:#fff;
+    font-family:'Cormorant Garamond', serif;
+    font-size: clamp(16px, 3vw, 19px);
+    font-weight:600;
+    letter-spacing:0.03em;
+    cursor:pointer;
+    box-shadow: 0 10px 26px rgba(201,138,143,0.4);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    animation: pulse 2.4s ease-in-out infinite;
+  }
+
+  .reveal-btn:hover{
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 14px 32px rgba(201,138,143,0.5);
+  }
+
+  .reveal-btn:focus-visible{
+    outline: 3px solid var(--rose-gold-deep);
+    outline-offset: 3px;
+  }
+
+  .reveal-message{
+    margin-top: clamp(18px, 4vw, 26px);
+    font-family:'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(17px, 3.4vw, 22px);
+    color: var(--blue-ink);
+    line-height:1.5;
+    animation: fadeIn 0.8s ease;
+  }
+
+  @keyframes fadeIn{
+    from{ opacity:0; transform: translateY(8px); }
+    to{ opacity:1; transform: translateY(0); }
+  }
+
+  @media (max-width:420px){
+    .unit{ min-width: 70px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="stars" id="stars"></div>
+
+<div class="stage">
+  <div class="card">
+    <div class="eyebrow">Scorpio KoKo &nbsp;✦&nbsp; Libra Chiksone</div>
+    <br>
+    <h1>ချစ်ဆုံးလေးဖို့ ကို့ရဲ့ပထမဆုံးလက်ဆောင်အတွက်  </h1>
+    <br>
+    <div class="sub">Koko Scorpion meets chiksone Libra</div>
+
+    <div class="balance">
+      <div class="glyph scorpio" title="Scorpio">
+        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10 20 C 10 20, 15 55, 35 60 C 55 65, 60 45, 45 40 C 33 36, 30 50, 42 55 C 60 62, 78 55, 85 40 L 80 45 M 85 40 L 78 32" stroke="#f4fcfd" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="10" cy="20" r="3" fill="#f4fcfd"/>
+          <circle cx="85" cy="40" r="3" fill="#f4fcfd"/>
+        </svg>
+      </div>
+      <div class="beam-wrap">
+        <div class="beam"></div>
+        <svg class="heart" viewBox="0 0 32 29" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M16 29 C 16 29 0 18.5 0 8.8 C 0 2.8 4.7 0 9.1 0 C 12.4 0 14.8 1.8 16 4.2 C 17.2 1.8 19.6 0 22.9 0 C 27.3 0 32 2.8 32 8.8 C 32 18.5 16 29 16 29 Z"/>
+        </svg>
+      </div>
+      <div class="glyph libra" title="Libra">
+        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="20" y1="30" x2="80" y2="30" stroke="#f8f9fe" stroke-width="3.2" stroke-linecap="round"/>
+          <line x1="50" y1="30" x2="50" y2="70" stroke="#f8f9fe" stroke-width="3.2" stroke-linecap="round"/>
+          <path d="M20 30 C 20 45, 35 45, 35 30" stroke="#f8f9fe" stroke-width="3" stroke-linecap="round"/>
+          <path d="M65 30 C 65 45, 80 45, 80 30" stroke="#f8f9fe" stroke-width="3" stroke-linecap="round"/>
+          <line x1="30" y1="72" x2="70" y2="72" stroke="#f8f9fe" stroke-width="3.2" stroke-linecap="round"/>
+          <line x1="50" y1="22" x2="50" y2="30" stroke="#f8f9fe" stroke-width="3.2" stroke-linecap="round"/>
+          <circle cx="50" cy="18" r="4" fill="#f8f9fe"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="countdown" id="countdown">
+      <div class="unit">
+        <div class="value" id="hours">648</div>
+        <div class="label">နာရီ</div>
+      </div>
+      <div class="colon">:</div>
+      <div class="unit">
+        <div class="value" id="minutes">00</div>
+        <div class="label">မိနစ်</div>
+      </div>
+    </div>
+
+    <button class="reveal-btn hidden" id="revealBtn">Open It Now ♡</button>
+    <div class="reveal-message hidden" id="revealMessage">
+      The wait is over. Every hour led here — to us. ♏ ♎
+    </div>
+
+    <div class="footer-note" id="footerNote">အမြဲတမ်း တူတူရှိချင်တဲ့ကိုကို အများကြီးချစ်တဲ့ကို</div>
+  </div>
+</div>
+
+<script>
+  // Fixed target date — hardcoded so it counts down in real time
+  // no matter when or how often the page is opened (works when hosted on GitHub Pages).
+  // 648 hours from setup = 27 days. Change this line if you need a different target.
+  const target = new Date("2026-08-19T00:00:00");
+
+  function updateCountdown(){
+    const now = new Date();
+    let diff = target - now;
+
+    const hoursEl = document.getElementById('hours');
+    const minutesEl = document.getElementById('minutes');
+    const countdownEl = document.getElementById('countdown');
+    const revealBtn = document.getElementById('revealBtn');
+    const footerNote = document.getElementById('footerNote');
+
+    if(diff <= 0){
+      countdownEl.innerHTML = '<div class="done">The moment has arrived ✦</div>';
+      footerNote.classList.add('hidden');
+      revealBtn.classList.remove('hidden');
+      clearInterval(timer);
+      return;
+    }
+
+    const totalMinutes = Math.floor(diff / 60000);
+    const hrs = Math.floor(totalMinutes / 60);
+    const mins = totalMinutes % 60;
+
+    hoursEl.textContent = String(hrs);
+    minutesEl.textContent = String(mins).padStart(2, '0');
+  }
+
+  updateCountdown();
+  const timer = setInterval(updateCountdown, 1000);
+
+  document.getElementById('revealBtn').addEventListener('click', function(){
+    this.classList.add('hidden');
+    document.getElementById('revealMessage').classList.remove('hidden');
+  });
+
+  // starfield generation
+  const starsContainer = document.getElementById('stars');
+  const starCount = window.innerWidth < 600 ? 40 : 70;
+  for(let i=0; i<starCount; i++){
+    const s = document.createElement('span');
+    s.style.left = Math.random()*100 + '%';
+    s.style.top = Math.random()*100 + '%';
+    s.style.animationDelay = (Math.random()*4) + 's';
+    s.style.width = s.style.height = (Math.random()*1.5 + 1) + 'px';
+    starsContainer.appendChild(s);
+  }
+</script>
+
+</body>
+</html>
